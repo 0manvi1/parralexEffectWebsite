@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper{
+    height:100vh;
+    overflow-y:auto;
+    overflow-x:hidden;
+    perspective: 20px;
+    /* perspective means the dist b/w eyes and the screen that is z direction */
+}
+.container{
+    position:relative;
+    /* in order to use absolute positionon child, we need to set the position of the nearest 
+    parent to non static that is any other than static position. */
+    height:100vh;
+    /* 100vh is the max height of the view port */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    /* to preserve the 3d and not to alter it later on. */
+    z-index: -1;
+
+}
+.background{
+    transform:translateZ(-40px) scale(4);
+    /* scale is used to increase the size at the same dist */
+}
+.foreground{
+    transform: translateZ(-20) scale(2); 
+    /* transform is used to set the dist between object and the axis */
+}
+.background,.foreground{
+    position:absolute;
+    /* to overlap the foreground and the background img. */
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    z-index: -1;
+    /* for the layering of images, z-index is used -1 means these images will go 
+    below the adventure heading */
+}
+h1{
+    position:absolute;
+    font-size: 10rem;
+    color: white;
+    text-shadow: 0,0,10px rgba(0,0,0.3);
+    top:3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 4px;
+}
+section{
+    background-color: rgb(45,45,45);
+    color:white;
+    padding:5 rem 0;
+}
+.bg1{
+    background-image: url(sport-1.jpg);
+}
+.bg2{
+    background-image: url(sport-2.jpg);
+}
+.bg3{
+    background-image: url(sport-3.jpg);
+}
+.sec{
+    font-size: 5rem;
+    padding:0 10 rem;
+}
+.text{
+    font-size: 1.5rem;
+    padding:0 10 rem;
+    margin:5rem 0;
+}
+.bg{
+    position:relative;
+    width:100%;
+    background-attachment: fixed;
+    /* background attachment is used to get the image fixed..even if we scroll the page it w
+    wont change .*/
+    background-position: center;
+    background-size:cover ;
+    height: 500px;
+} 
+.disc{
+    position: absolute;
+    background-color: white;   
+    padding: 0.5rem 2.5rem;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%);
+    color:black;
+    font-size:4.5rem;
+    font-weight:600;
+}
